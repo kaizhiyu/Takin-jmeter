@@ -111,10 +111,10 @@ if (isCiServer) {
 // Checksum plugin sources can be validated at https://github.com/vlsi/vlsi-release-plugins
 buildscript {
     dependencies {
-        classpath("com.github.vlsi.gradle:checksum-dependency-plugin:${settings.extra["com.github.vlsi.checksum-dependency.version"]}") {
-            // Gradle ships kotlin-stdlib which is good enough
-            exclude("org.jetbrains.kotlin", "kotlin-stdlib")
-        }
+//        classpath("com.github.vlsi.gradle:checksum-dependency-plugin:${settings.extra["com.github.vlsi.checksum-dependency.version"]}") {
+//            // Gradle ships kotlin-stdlib which is good enough
+//            exclude("org.jetbrains.kotlin", "kotlin-stdlib")
+//        }
     }
     repositories {
         gradlePluginPortal()
@@ -136,9 +136,10 @@ val expectedSha512 = mapOf(
     "46F188DD310C7C9D77EAEF3E85A6FE5A47FD3CD809467C5B35D7D9A79DC8B99E9B7F43C631A96DE0E98C08F644EA64B37168724C5FB1FECCABAD388DADC79626"
             to "jedis-3.3.0.jar",
     "98D10F2AAC83CC3D97B9E7EAB82825892E62CCD9457F8B60D574775F5EEB3AFA2EEE06539995692F33C811C5D35E754F0E79DEC2529F58900427CEC595496D7B"
-            to "fastjson-1.2.72.jar",
-    settings.extra["com.github.vlsi.checksum-dependency.sha512"].toString()
-    to "checksum-dependency-plugin.jar"
+            to "fastjson-1.2.72.jar"
+//    ,
+//    settings.extra["com.github.vlsi.checksum-dependency.sha512"].toString()
+//    to "checksum-dependency-plugin.jar"
 )
 
 fun File.sha512(): String {
@@ -162,7 +163,7 @@ if (violations.isNotBlank()) {
     throw GradleException("Buildscript classpath has files that were not explicitly permitted:\n  $violations")
 }
 
-apply(plugin = "com.github.vlsi.checksum-dependency")
+//apply(plugin = "com.github.vlsi.checksum-dependency")
 
 // This enables to try local Autostyle
 property("localAutostyle")?.ifBlank { "../autostyle" }?.let {

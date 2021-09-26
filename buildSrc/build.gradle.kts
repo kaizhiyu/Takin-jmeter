@@ -22,7 +22,7 @@ plugins {
     java
     maven
     `kotlin-dsl` apply false
-    id("com.github.autostyle")
+//    id("com.github.autostyle")
 }
 
 repositories {
@@ -54,21 +54,21 @@ fun Project.applyKotlinProjectConventions() {
             jvmTarget = "1.8"
         }
     }
-    apply(plugin = "com.github.autostyle")
-    autostyle {
-        kotlin {
-            ktlint {
-                userData(mapOf("disabled_rules" to "import-ordering"))
-            }
-            trimTrailingWhitespace()
-            endWithNewline()
-        }
-        kotlinGradle {
-            ktlint()
-            trimTrailingWhitespace()
-            endWithNewline()
-        }
-    }
+//    apply(plugin = "com.github.autostyle")
+//    autostyle {
+//        kotlin {
+//            ktlint {
+//                userData(mapOf("disabled_rules" to "import-ordering"))
+//            }
+//            trimTrailingWhitespace()
+//            endWithNewline()
+//        }
+//        kotlinGradle {
+//            ktlint()
+//            trimTrailingWhitespace()
+//            endWithNewline()
+//        }
+//    }
 }
 
 dependencies {
